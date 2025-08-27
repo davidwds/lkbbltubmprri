@@ -1,9 +1,10 @@
 const webAppUrl = "https://script.google.com/macros/s/AKfycbyDc9A2i5c0FF2gLduFsmmlGQ9SOEEkFM4TSWFQEdPnnA9xo3dhV4LaYLZ3JlmY7ih3/exec"; // ganti dengan URL Web App
+let html5QrcodeScanner;
 
 function displayResult(data) {
   const table = document.getElementById("resultTable");
   const tbody = document.getElementById("resultBody");
-  tbody.innerHTML = ""; // kosongkan sebelumnya
+  tbody.innerHTML = ""; 
 
   if (data.error) {
     document.getElementById("message").textContent = data.error;
@@ -31,11 +32,8 @@ function displayResult(data) {
   document.getElementById("message").textContent = "";
 }
 
-// Start QR scanner
 function onScanSuccess(decodedText, decodedResult) {
-  // Stop scanning setelah scan berhasil
   html5QrcodeScanner.clear();
-  // Ambil data dari Apps Script
   fetch(`${webAppUrl}?uuid=${decodedText}`)
     .then(res => res.json())
     .then(data => displayResult(data))
@@ -45,9 +43,12 @@ function onScanSuccess(decodedText, decodedResult) {
     });
 }
 
-const html5QrcodeScanner = new Html5Qrcode("reader");
-html5QrcodeScanner.start(
-  { facingMode: "environment" },
-  { fps: 10, qrbox: 250 },
-  onScanSuccess
-);
+// Tombol untuk buka kamera
+document.getElementById("startCameraBtn").addEventListener("click", () => {
+  html5QrcodeScanner = new Html5Qrcode("reader");
+  html5QrcodeScanner.start(
+    { facingMode: "environment" },
+    { fps: 10, qrbox: 250 },
+    onScanSuccess
+  );
+});
