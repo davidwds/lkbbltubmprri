@@ -1,4 +1,4 @@
-const webAppUrl = "YOUR_APPS_SCRIPT_WEB_APP_URL"; // ganti dengan URL Web App
+const webAppUrl = "https://script.google.com/macros/s/AKfycbyDc9A2i5c0FF2gLduFsmmlGQ9SOEEkFM4TSWFQEdPnnA9xo3dhV4LaYLZ3JlmY7ih3/exec"; // ganti dengan URL Web App
 
 function displayResult(data) {
   const table = document.getElementById("resultTable");
