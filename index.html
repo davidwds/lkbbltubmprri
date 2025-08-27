@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scan QR Kartu Peserta</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://unpkg.com/html5-qrcode@2.3.7/minified/html5-qrcode.min.js"></script>
+</head>
+<body>
+<h2>Scan QR Kartu Peserta</h2>
+<div id="reader" style="width:300px"></div>
+<p id="message" style="color:red;"></p>
+
+<table border="1" id="resultTable" style="display:none;">
+  <thead>
+    <tr>
+      <th>UUID</th>
+      <th>Email</th>
+      <th>Nama Lengkap</th>
+      <th>Nomor Identitas</th>
+      <th>Tipe Identitas</th>
+      <th>Nomor HP</th>
+      <th>Alamat</th>
+      <th>Asal Institusi</th>
+      <th>Pendukung Provinsi</th>
+      <th>Pendukung Sekolah</th>
+      <th>Bukti Foto Identitas</th>
+      <th>Upload Foto Diri</th>
+    </tr>
+  </thead>
+  <tbody id="resultBody"></tbody>
+</table>
+
+<script src="script.js"></script>
+</body>
+</html>
